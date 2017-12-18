@@ -1,4 +1,4 @@
-package com.sapient.OO.service;
+package com.sapient.service;
 
 public class Car {
 	private int carId;

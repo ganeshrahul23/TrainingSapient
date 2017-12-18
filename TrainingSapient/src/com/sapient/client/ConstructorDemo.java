@@ -1,6 +1,6 @@
-package com.sapient.OO.client;
+package com.sapient.client;
 
-import com.sapient.OO.service.Car;
+import com.sapient.service.Car;
 
 public class ConstructorDemo {
 
