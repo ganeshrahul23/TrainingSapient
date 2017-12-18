@@ -14,7 +14,9 @@ public class Car {
 
 	public Car(int carId, String carName) throws Exception {
 		this(carId);
-		System.out.println("Two Argument Constructed");		
+		System.out.println("Two Argument Constructed");
+		if(!carName.matches("[a-zA-Z]{3,10}"))
+			throw new Exception("Car name must contain 3-10 alphabets");
 		this.carName = carName;
 	}
 	
