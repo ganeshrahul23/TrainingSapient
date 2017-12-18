@@ -11,15 +11,22 @@ public class MulTable {
 	}
 	
 	public void display() {
-		for(int i=1; i<=10; ++i) {
-			System.out.printf("%d x %d = %d\n", num, i, (num * i));
-		}
+		showTable(1, 10);
 	}
 	
 	public void display(int rows) {
-		for(int i=1; i<=rows; ++i) {
+		showTable(1, rows);		
+	}
+	
+	public void display(int start, int end) {
+		if(end > 0 && start > 0 && end >= start)
+			showTable(start, end);
+	}
+	
+	private void showTable(int start, int end) {
+		for(int i=start; i<=end; ++i) {
 			System.out.printf("%d x %d = %d\n", num, i, (num * i));
-		}		
+		}
 	}
 	
 }
