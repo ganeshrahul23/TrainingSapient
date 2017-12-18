@@ -23,6 +23,8 @@ public class Car {
 	public Car(int carId, String carName, double carPrice) throws Exception {
 		this(carId, carName);
 		System.out.println("Three Argument Constructed");
+		if(carPrice < 1000000.00d)
+			throw new Exception("price must be more");
 		this.carPrice = carPrice;
 	}
 			
