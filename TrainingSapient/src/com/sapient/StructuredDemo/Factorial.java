@@ -1,5 +1,6 @@
 package com.sapient.StructuredDemo;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Factorial {
@@ -11,13 +12,12 @@ public class Factorial {
 		sc.close();
 		System.out.println("The Factorial is " + findFact(num));
 	}
-	
-	public static int findFact(int num) {
-		int factorial = 1;
+	public static BigInteger findFact(int num) {
+		BigInteger factorial = BigInteger.ONE;
 		for(int idx = num; idx > 0; idx--) {
-			factorial = factorial * idx;
+			factorial = factorial.multiply(BigInteger.valueOf(idx));
 		}
 		return factorial;
 	}
-
+	
 }
