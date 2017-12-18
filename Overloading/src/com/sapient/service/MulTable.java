@@ -18,9 +18,11 @@ public class MulTable {
 		showTable(1, rows);		
 	}
 	
-	public void display(int start, int end) {
+	public void display(int start, int end) throws Exception {
 		if(end > 0 && start > 0 && end >= start)
 			showTable(start, end);
+		else
+			throw new Exception("Start and End must be Positive and End must be greater than Start");
 	}
 	
 	private void showTable(int start, int end) {
