@@ -16,4 +16,10 @@ public class MulTable {
 		}
 	}
 	
+	public void display(int rows) {
+		for(int i=1; i<=rows; ++i) {
+			System.out.printf("%d x %d = %d\n", num, i, (num * i));
+		}		
+	}
+	
 }

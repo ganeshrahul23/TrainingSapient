@@ -14,6 +14,7 @@ public class MulTableClient {
 		try {
 			MulTable obj = new MulTable(num);
 			obj.display();
+			obj.display(7);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
