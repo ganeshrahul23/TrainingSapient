@@ -2,12 +2,13 @@ package com.sapient.service;
 
 public class OnRollEmployee extends Employee {
 	
+	
 	private double da,pf;
 
-	public OnRollEmployee(int empId, String empName, double sal, double da, double pf) {
+	public OnRollEmployee(int empId, String empName, double sal) {
 		super(empId, empName, sal);
-		this.da = da;
-		this.pf = pf;
+		this.da = (getSal() * 0.4);
+		this.pf = (getSal() * 0.12);
 	}
 
 	@Override
