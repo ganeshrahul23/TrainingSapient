@@ -10,6 +10,7 @@ public class EmpMemDao implements Idao {
 	}
 	@Override
 	public List<String> viewEmployee() {
+		System.out.println("This is EmpMemDao Instance");
 		List<String> lst = new ArrayList<String>();
 		lst.add("ram");
 		lst.add("sam");
