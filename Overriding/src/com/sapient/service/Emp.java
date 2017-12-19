@@ -1,6 +1,6 @@
 package com.sapient.service;
 
-public class Emp {
+public class Emp implements Cloneable{
 	private int eId;
 	private String eName;
 	public Emp(int eId, String eName) {
@@ -29,6 +29,12 @@ public class Emp {
 	protected void finalize() throws Throwable {
 		System.out.println("Garbabe Collected " + eId);
 	}
+
+	@Override
+	public Emp clone() throws CloneNotSupportedException {
+		return (Emp)super.clone();
+	}
+	
 	
 	
 	
