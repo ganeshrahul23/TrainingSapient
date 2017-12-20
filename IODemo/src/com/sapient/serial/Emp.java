@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Emp implements Serializable{
 	private int eId;
-	private String ename;
+	private transient String ename;
 	private double sal;
 	
 	public Emp(int eId, String ename, double sal) {
