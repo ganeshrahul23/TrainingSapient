@@ -9,17 +9,17 @@ public class Calculator implements Interest, Factorial{
 	private Calculator() {
 	}
 	
-	private static Basic getBasic(){
+	public static Basic getBasic(){
 		Basic basic = calc;
 		return basic;
 	}
 
-	private static Interest getInterest(){
+	public static Interest getInterest(){
 		Interest inte = calc;
 		return inte;
 	}
 	
-	private static Factorial getFactorial(){
+	public static Factorial getFactorial(){
 		Factorial fac = calc;
 		return fac;
 	}
@@ -47,5 +47,12 @@ public class Calculator implements Interest, Factorial{
 		}
 		return factorial;
 	}
+
+	@Override
+	public double doSum(int... num) {
+		return Interest.super.doSum(num);
+	}
+	
+	
 	
 }
