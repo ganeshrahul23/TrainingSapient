@@ -11,8 +11,12 @@ public class UpdateSalary {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		Connection conn = DriverManager.getConnection(url,"system","Sapient123");
 		
-		String sql = "";
-		PreparedStatement st = conn.prepareStatement(sql);			
+		String sql = "UPDATE sap_employee SET sal = ? WHERE eid = ?";
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setDouble(1, 78444.22);
+		st.setInt(2, 0);
+		int row = st.executeUpdate();
+		System.out.println(row + " rows affected");
 		conn.close();
 	}
 }
