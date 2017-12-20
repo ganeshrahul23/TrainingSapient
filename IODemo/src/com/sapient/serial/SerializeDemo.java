@@ -5,12 +5,8 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
-public class SerializeDemo extends ObjectOutputStream{
+public class SerializeDemo {
 	
-	protected SerializeDemo() throws IOException, SecurityException {
-		super();
-	}
-
 	public static void main(String[] args) throws IOException {
 		FileOutputStream fos = new FileOutputStream("employee.txt");	
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -36,11 +32,6 @@ public class SerializeDemo extends ObjectOutputStream{
 		oos.close();
 		fos.close();
 		System.out.println("Serialized");
-	}
-
-	@Override
-	protected void writeStreamHeader() throws IOException {
-		reset();
 	}
 
 }
