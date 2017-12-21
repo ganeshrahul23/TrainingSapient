@@ -45,9 +45,11 @@ public class EmpClient {
 		case VIEW: viewById();
 		           break;
 		case ADD: addEmp();
-				  break;
-		case EDIT:
-		case REMOVE:
+				  break;			  
+		case EDIT: editEmp();
+				   break;				   
+		case REMOVE:removeEmp();
+					break;
 		}
 		
 	}
@@ -97,9 +99,33 @@ public class EmpClient {
 			dao.addEmployee(emp);
 		} catch (IdException e) {
 			e.printStackTrace();
-		}
-		
-		
+		}				
 	}
+	
+	public static void removeEmp(){
+		System.out.print("Enter the employee Id :");
+		try {
+			 dao.removeEmployee(Integer.parseInt(sc.nextLine()));
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+		} 
+		System.out.println("Employee removed");
+	}
+	
+	public static void editEmp(){
+		System.out.print("Enter the employee Id :");
+		int eid = Integer.parseInt(sc.nextLine());
+		
+		System.out.print("Enter the new employee salary :");
+		double sal = Double.parseDouble(sc.nextLine());
+		
+		try {
+			dao.updateSalary(eid, sal);
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 
 }

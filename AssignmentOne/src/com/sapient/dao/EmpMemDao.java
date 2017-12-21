@@ -52,13 +52,31 @@ public class EmpMemDao implements Idao {
 	}
 
 	@Override
-	public int removeEmployee(Emp emp) throws NotFoundException {
-		return 0;
+	public int removeEmployee(int eid) throws NotFoundException {
+		if(emap.containsKey(eid)){
+			emap.remove(eid);
+		}else{
+			throw new NotFoundException("Employee not Found");
+		}
+		return 1;
 	}
 
 	@Override
 	public int updateSalary(int eid, double sal) throws NotFoundException {
-		return 0;
+		Emp emp = null;
+		if(emap.containsKey(eid)){
+		     emp = viewEmployee(eid);
+		     emp.setSal(sal);
+		     removeEmployee(eid);
+		     try {
+				addEmployee(emp);
+			} catch (IdException e) {
+				e.printStackTrace();
+			}
+		}else{
+			throw new NotFoundException("Employee not Found");
+		}
+		return 1;
 	}
 
 }
