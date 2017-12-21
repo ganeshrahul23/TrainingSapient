@@ -10,25 +10,10 @@ public class SerializeDemo {
 	public static void main(String[] args) throws IOException {
 		FileOutputStream fos = new FileOutputStream("employee.txt");	
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		
-		Scanner sc= new Scanner(System.in);
-		
-//		System.out.print("Enter Employee Id : ");
-//		int eid = Integer.parseInt(sc.nextLine());
-//		
-//		System.out.print("Enter Employee Name : ");
-//		String name = sc.nextLine();
-//		
-//		System.out.print("Enter Employee Salary : ");
-//		double sal = sc.nextDouble();
-		
-		
-		Emp emp1 = new Emp(1001, "Ram", 45000);
-		Emp emp2 = new Emp(1002, "pram", 78000);
-		Emp emp3 = new Emp(1003, "sam", 43576);
+				
+		Emp emp1 = new Emp(1005, "peter", 56000);
 		oos.writeObject(emp1);
-		oos.writeObject(emp2);
-		oos.writeObject(emp3);
+		
 		oos.close();
 		fos.close();
 		System.out.println("Serialized");

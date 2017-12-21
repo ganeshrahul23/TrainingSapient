@@ -3,20 +3,20 @@ package com.sapient.serial;
 import java.io.Serializable;
 
 public class Emp implements Serializable{
-	private int eId;
+	private int eid;
 	private transient String ename;
 	private double sal;
 	
-	public Emp(int eId, String ename, double sal) {
+	public Emp(int eid, String ename, double sal) {
 		super();
-		this.eId = eId;
+		this.eid = eid;
 		this.ename = ename;
 		this.sal = sal;
 	}
 
 	@Override
 	public String toString() {
-		return "Emp [eId=" + eId + ", ename=" + ename + ", sal=" + sal + "]";
+		return eid + " " + ename + " " + sal;
 	}
 		
 }
