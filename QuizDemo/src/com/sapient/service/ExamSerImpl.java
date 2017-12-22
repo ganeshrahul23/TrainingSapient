@@ -11,6 +11,7 @@ import java.util.Set;
 import com.sapient.dao.ExamDaoImpl;
 import com.sapient.dao.IDao;
 import com.sapient.test.TestDao;
+import com.sapient.util.ExamUtil;
 import com.sapient.vo.Answer;
 import com.sapient.vo.Question;
 
@@ -25,7 +26,6 @@ public class ExamSerImpl implements IExamSer {
 	}
 	
 	private static Map<Integer, Question> qmap = null;	
-	//private static IDao dao = null;
 	static{
 		IDao dao = ExamDaoImpl.getInstance();
 		qmap = dao.viewQuestions();
@@ -33,7 +33,7 @@ public class ExamSerImpl implements IExamSer {
 
 	@Override
 	public List<Question> generateQuestions() {
-		Set<Integer> qids = genRandomQues(5);
+		Set<Integer> qids = ExamUtil.genUniqueNos(5);
 		List<Question> lst = new ArrayList<>();	
 		for(Integer qno : qids){
 			lst.add(qmap.get(qno));
@@ -41,15 +41,6 @@ public class ExamSerImpl implements IExamSer {
 		return lst;
 	}
 	
-	private Set<Integer> genRandomQues(int n){
-		Set<Integer> set= new HashSet<>();
-		Random ran = new Random();
-		while(set.size() < n){
-			set.add(ran.nextInt(15)  + 1);
-		}		
-		return set;
-	}
-
 	@Override
 	public int evaluate(List<Answer> alist) {
 		Answer ans = null;
