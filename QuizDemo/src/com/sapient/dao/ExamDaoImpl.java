@@ -12,6 +12,15 @@ import com.sapient.vo.Question;
 
 public class ExamDaoImpl implements IDao {
 	
+	private static IDao dao = new ExamDaoImpl();
+	private ExamDaoImpl(){
+		
+	}
+	
+	public static IDao getInstance(){
+		return dao;
+	}
+	
 	static{
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -24,12 +33,12 @@ public class ExamDaoImpl implements IDao {
 	public Map<Integer, Question> viewQuestions() {
 		
 		Map<Integer, Question> map = new HashMap<>();		
-		int qid;
-		String qDesc;
-		String optA;
-		String optB;
-		String optC;
-		String answer;
+//		int qid;
+//		String qDesc;
+//		String optA;
+//		String optB;
+//		String optC;
+//		String answer;
 		Question ques = null;
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		
@@ -39,14 +48,14 @@ public class ExamDaoImpl implements IDao {
 			ResultSet rs = st.executeQuery();
 			
 			while(rs.next()){
-				qid = rs.getInt("qid");
-				qDesc = rs.getString("qdesc");
-				optA = rs.getString("optiona");
-				optB = rs.getString("optionb");
-				optC = rs.getString("optionc");
-				answer = rs.getString("answer");
-				ques = new Question(qid, qDesc, optA, optB, optC, answer);
-				map.put(qid, ques);
+//				qid = rs.getInt("qid");
+//				qDesc = rs.getString("qdesc");
+//				optA = rs.getString("optiona");
+//				optB = rs.getString("optionb");
+//				optC = rs.getString("optionc");
+//				answer = rs.getString("answer");
+				ques = new Question(rs.getInt("qid"), rs.getString("qdesc"), rs.getString("optiona"), rs.getString("optionb"), rs.getString("optionc"), rs.getString("answer"));
+				map.put(rs.getInt("qid"), ques);
 			}
 			
 		} catch (SQLException e) {

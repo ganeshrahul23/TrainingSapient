@@ -44,5 +44,12 @@ public class Question {
 	public String getAnswer() {
 		return answer;
 	}
+	@Override
+	public String toString() {
+		return "qid=" + qid + ", qDesc=" + qDesc + ", optA=" + optA + ", optB=" + optB + ", optC=" + optC
+				+ ", answer=" + answer;
+	}
+	
+	
 		
 }
