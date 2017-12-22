@@ -25,9 +25,9 @@ public class ExamSerImpl implements IExamSer {
 	}
 	
 	private static Map<Integer, Question> qmap = null;	
-	private static IDao dao = null;
+	//private static IDao dao = null;
 	static{
-		dao = ExamDaoImpl.getInstance();
+		IDao dao = ExamDaoImpl.getInstance();
 		qmap = dao.viewQuestions();
 	}
 
@@ -52,6 +52,14 @@ public class ExamSerImpl implements IExamSer {
 
 	@Override
 	public int evaluate(List<Answer> alist) {
-		return 0;
+		Answer ans = null;
+		int score = 0;
+		Question ques = null;
+		for(Answer answer : alist){
+			ques = qmap.get(answer.getQid());
+			if(ques.getAnswer().equalsIgnoreCase(answer.getAnswer()))
+				++score;
+		}
+		return score;
 	}
 }
