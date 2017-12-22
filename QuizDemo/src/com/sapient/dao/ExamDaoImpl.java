@@ -7,12 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import com.sapient.vo.Question;
 
 public class ExamDaoImpl implements IDao {
 	
 	private static IDao dao = new ExamDaoImpl();
+	private static ResourceBundle rb;
 	private ExamDaoImpl(){
 		
 	}
@@ -22,8 +24,9 @@ public class ExamDaoImpl implements IDao {
 	}
 	
 	static{
+		rb = ResourceBundle.getBundle("sap");
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName(rb.getString("drivername"));
 		} catch (ClassNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
@@ -33,27 +36,15 @@ public class ExamDaoImpl implements IDao {
 	public Map<Integer, Question> viewQuestions() {
 		
 		Map<Integer, Question> map = new HashMap<>();		
-//		int qid;
-//		String qDesc;
-//		String optA;
-//		String optB;
-//		String optC;
-//		String answer;
 		Question ques = null;
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = rb.getString("url");
 		
-		try (Connection conn = DriverManager.getConnection(url,"system","Sapient123")){
+		try (Connection conn = DriverManager.getConnection(url,rb.getString("usrname"),rb.getString("pwd"))){
 			String sql = "SELECT * FROM questions";
 			PreparedStatement st = conn.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();
 			
 			while(rs.next()){
-//				qid = rs.getInt("qid");
-//				qDesc = rs.getString("qdesc");
-//				optA = rs.getString("optiona");
-//				optB = rs.getString("optionb");
-//				optC = rs.getString("optionc");
-//				answer = rs.getString("answer");
 				ques = new Question(rs.getInt("qid"), rs.getString("qdesc"), rs.getString("optiona"), rs.getString("optionb"), rs.getString("optionc"), rs.getString("answer"));
 				map.put(rs.getInt("qid"), ques);
 			}
