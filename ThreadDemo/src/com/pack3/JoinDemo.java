@@ -5,7 +5,7 @@ import com.pack1.MyThread;
 public class JoinDemo {
 
 	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
+		
 		MyThread t1 = new MyThread();
 		t1.setName("ram");
 		

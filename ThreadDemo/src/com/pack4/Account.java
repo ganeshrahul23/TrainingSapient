@@ -21,7 +21,7 @@ public class Account {
 		this.balance = balance;
 	}
 	
-	
+	//public  void deposit(String name, int amt){
 	public  synchronized void deposit(String name, int amt) {
 	
 		for(int i=1; i<=500; ++i){

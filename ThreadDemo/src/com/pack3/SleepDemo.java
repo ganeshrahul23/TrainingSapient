@@ -5,7 +5,7 @@ public class SleepDemo {
 	public static double sval = 0;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		System.out.println("Main... starts   ");
 		Series t1 = new Series();
 		

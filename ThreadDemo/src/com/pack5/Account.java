@@ -2,8 +2,8 @@ package com.pack5;
 
 
 public class Account {
-	public volatile int balance;
-
+	//public volatile int balance;
+	public int balance;
 	
 	public Account(int balance) {
 		this.balance = balance;
