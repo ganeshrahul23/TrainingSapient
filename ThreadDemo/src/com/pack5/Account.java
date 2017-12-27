@@ -2,8 +2,8 @@ package com.pack5;
 
 
 public class Account {
-	//public volatile int balance;
-	public int balance;
+	private  int balance;
+
 	
 	public Account(int balance) {
 		this.balance = balance;
@@ -16,17 +16,12 @@ public class Account {
 	}
 
 	
-	private void setBalance(int balance) {
-		
-		this.balance = balance;
-	}
-	
-	
-	public   void deposit(String name, int amt) {
+	public   void deposit(int amt) {
 	
 		for(int i=1; i<=500; ++i){
-			System.out.println(name + " doing tx " );
+			System.out.println(Thread.currentThread().getName() + " doing tx " );
 		}
+		balance = balance + amt;
 	}
 
 
