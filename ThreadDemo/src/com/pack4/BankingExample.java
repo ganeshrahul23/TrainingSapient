@@ -11,7 +11,7 @@ public class BankingExample {
 		TomThread t1 = new TomThread(account, 2500);
 		t1.setName("tom");
 		PeterThread t2 = new PeterThread(account,  3000);
-		t2.setName("peter");
+		t2.setName("\tpeter");
 		t1.start();
 		t2.start();
 		

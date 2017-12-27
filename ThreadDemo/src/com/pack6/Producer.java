@@ -9,20 +9,18 @@ public class Producer extends Thread
 		
 		public Producer(Que que)
 		{
-			que=que;
-			
+			this.que=que;			
 		}
 		
-	public void run()
-	{
-		int i=1;
-		while(i<=5)
+		public void run()
 		{
-			String str = scan.next();
-			que.put( str);
-			++i;
+			int i=1;
+			while(i<=5)
+			{
+				String str = scan.next();
+				que.put(str);
+				++i;
+			}
+					
 		}
-		
-		
-	}
 }

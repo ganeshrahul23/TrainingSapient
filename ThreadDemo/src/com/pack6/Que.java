@@ -21,18 +21,15 @@ public class Que {
 	
 	public synchronized void put( String str) {
 		System.out.println("producer");
-		if (valueset) {
-			
+		if (valueset) {		
 			try {
 				wait();
 			} catch (InterruptedException e) {
 			}
-		}
-		
+		}	
 		data = str;
 		valueset = true;
 		System.out.println("producer posted " + data);
-
 		notify();
 	}
 }
